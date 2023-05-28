@@ -3,30 +3,32 @@
         <!-- Navbar -->
         <nav id="navbarTop">
             <div id="navbarTitle">
-                <a (click)="displayPresentation()"><h1>{{title}}</h1></a>
+                <a routerLink=""><h1>{{title}}</h1></a>
             </div>
             <div id="navbarTopRight">
-                <div id="navbarTopRightInner">
-                    <a (click)="displayUserConnection()">Se connecter</a>
-                    <a (click)="displayUserConnection()"><img src="assets/img/profil.png" alt="icone profil"></a>
+                <a routerLink="inscription">S'inscrire</a>
+                <div id="connexion">
+                    <a routerLink="connexion">Se connecter</a>
+                    <a routerLink="connexion"><img src="assets/img/profil.png" alt="icone profil"></a>
                 </div>
             </div>
         </nav>
     </header>
 
     <main>
-        <app-outsider-presentation *ngIf="viewPresentation"></app-outsider-presentation>
+        <router-outlet></router-outlet>
+        <!-- <app-outsider-presentation *ngIf="viewPresentation"></app-outsider-presentation>
         <app-contact *ngIf="viewContact"></app-contact>
         <app-legal-notice *ngIf="viewLegalNotice"></app-legal-notice>
-        <app-user-connection *ngIf="viewUserConnection"></app-user-connection>
+        <app-user-connection *ngIf="viewUserConnection"></app-user-connection> -->
     </main>
     
     <footer>
     <!-- Mentions légales, cookies et contact -->
         <nav id="navbarBot">
             <div>
-                <a (click)="displayLegalNotice()">Mentions légales</a>
-                <a (click)="displayContact()">Contact</a>
+                <a routerLink="mentions-legales">Mentions légales</a>
+                <a routerLink="contact">Contact</a>
             </div>
         </nav>
     </footer>

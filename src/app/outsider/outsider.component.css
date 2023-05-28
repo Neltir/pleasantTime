@@ -45,7 +45,7 @@ h1, h2, h3, h4{
     justify-content: space-between;
     align-items: center;
 }
-#navbarTop div:not(#navbarTopRightInner){
+#navbarTop div:not(#connexion){
     padding: 0.7vw;
 }
 #navbarTitle{
@@ -63,18 +63,19 @@ h1, h2, h3, h4{
     width: 50vw;
     display: flex;
     justify-content: flex-end;
-}
-#navbarTopRightInner{
-    display: flex;
     align-items: center;
-    justify-content: center;
-    width: 20vw;
 }
-#navbarTopRightInner a{
+#navbarTopRight a{
     color: white;
     text-decoration: none;
     font-weight: bold;
     font-size: 0.8vw;
+}
+#connexion{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20vw;
 }
 #navbarTop img{
     width: 80px;
