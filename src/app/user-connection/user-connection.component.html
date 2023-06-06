@@ -1,18 +1,27 @@
-<form action="">
+<form (ngSubmit)="userLogin()" #connectionForm="ngForm">
     <div class="ui-g ui-fluid connectionForm">
         <div class="ui-g-12 ui-md-4">
             <div class="ui-inputgroup">
-                <span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
-                <input type="text" pInputText placeholder="Username">         
+                <span class="p-input-icon-left">
+                    <i class="pi pi-user"></i>
+                    <input [(ngModel)]="user.username" class="form-control" name="username" id="username" #username="ngModel" type="text" pInputText pTooltip="Identifiant" pTooltipPosition="left" placeholder="Identifiant" required>
+                </span>
+                </div>
+            <div [hidden]="username.valid || username.pristine" class="alert">
+                L'identifiant est obligatoire
             </div>
         </div>
-        
         <div class="ui-g-12 ui-md-4">
             <div class="ui-inputgroup">
-                <span class="ui-inputgroup-addon"><i class="pi pi-key"></i></span>
-                <input type="password" pInputText placeholder="Password">  
+                <span class="p-input-icon-left">
+                    <i class="pi pi-key"></i>
+                    <input [(ngModel)]="user.password" class="form-control" name="password" id="password" #password="ngModel" type="password" pInputText pTooltip="Mot de passe" pTooltipPosition="left" placeholder="Mot de passe" required>
+                </span>
+            </div>
+            <div [hidden]="password.valid || password.pristine" class="alert">
+                Le mot de passe est obligatoire
             </div>
         </div>
-        <button pButton type="submit" class="ui-button-raised">Se connecter</button>
+        <button pButton type="submit" class="ui-button-raised" [disabled]="!connectionForm.valid">Se connecter</button>
     </div>
 </form>

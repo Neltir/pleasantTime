@@ -1,0 +1,49 @@
+<form (ngSubmit)="userRegister(user.username,user.email,user.password,user.passwordRe)" #registerForm="ngForm">
+    <div class="ui-g ui-fluid connectionForm">
+        <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">
+                <span class="p-input-icon-left">
+                    <i class="pi pi-user"></i>
+                    <input [(ngModel)]="user.username" class="form-control"[value]="user.username" name="username" id="username" #username="ngModel" type="text" pInputText pTooltip="Identifiant" pTooltipPosition="left" placeholder="Identifiant" required minlength="4">
+                </span>
+                </div>
+            <div [hidden]="username.valid || username.pristine" class="alert">
+                L'identifiant est obligatoire
+            </div>
+        </div>
+        <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">
+                <span class="p-input-icon-left">
+                    <i class="pi pi-envelope"></i>
+                    <input [(ngModel)]="user.email" class="form-control" [value]="user.email" name="email" id="email" #email="ngModel" type="email" pInputText pTooltip="Email" pTooltipPosition="left" placeholder="Email" required>
+                </span>
+            </div>
+            <div [hidden]="email.valid || email.pristine" class="alert">
+                L'email est obligatoire
+            </div>
+        </div>
+        <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">
+                <span class="p-input-icon-left">
+                    <i class="pi pi-key"></i>
+                    <input [(ngModel)]="user.password" class="form-control" name="password" id="password" #password="ngModel" type="password" pInputText pTooltip="Mot de passe" pTooltipPosition="left" placeholder="Mot de passe" required minlength="12">
+                </span>
+            </div>
+            <div [hidden]="password.valid || password.pristine" class="alert">
+                Le mot de passe est obligatoire
+            </div>
+        </div>
+        <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">
+                <span class="p-input-icon-left">
+                    <i class="pi pi-key"></i>
+                    <input [(ngModel)]="user.passwordRe" class="form-control" name="passwordRe" id="passwordRe" #passwordRe="ngModel" type="password" pInputText pTooltip="Confirmer le mot de passe" pTooltipPosition="left" placeholder="Confirmer le mot de passe" required minlength="12">
+                </span>
+            </div>
+            <div [hidden]="passwordRe.valid || passwordRe.pristine" class="alert">
+                Le mot de passe est obligatoire
+            </div>
+        </div>
+        <button pButton type="submit" class="ui-button-raised" [disabled]="!registerForm.valid">S'inscrire</button>
+    </div>
+</form>

@@ -5,22 +5,21 @@
             <div id="navbarTitle">
                 <a routerLink=""><h1>{{title}}</h1></a>
             </div>
-            <div id="navbarTopRight">
+            <div *ngIf="!isLoggedIn" id="navbarTopRight">
                 <a routerLink="inscription">S'inscrire</a>
                 <div id="connexion">
                     <a routerLink="connexion">Se connecter</a>
                     <a routerLink="connexion"><img src="assets/img/profil.png" alt="icone profil"></a>
                 </div>
             </div>
+            <div *ngIf="isLoggedIn" id="navbarTopRight">
+                <a (click)="logout()">Se déconnecter</a>
+            </div>
         </nav>
     </header>
 
     <main>
         <router-outlet></router-outlet>
-        <!-- <app-outsider-presentation *ngIf="viewPresentation"></app-outsider-presentation>
-        <app-contact *ngIf="viewContact"></app-contact>
-        <app-legal-notice *ngIf="viewLegalNotice"></app-legal-notice>
-        <app-user-connection *ngIf="viewUserConnection"></app-user-connection> -->
     </main>
     
     <footer>

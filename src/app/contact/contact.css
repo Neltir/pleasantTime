@@ -1,0 +1,14 @@
+#firstBloc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#firstBloc > div > form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+form > input, form > textarea{
+    width:30vh;
+}
