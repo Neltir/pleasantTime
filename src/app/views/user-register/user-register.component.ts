@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { UserRegister } from '../userRegister';
-import { UserService } from '../user.service';
+import { UserRegister } from '../../models/userRegister';
+import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 
@@ -23,7 +23,9 @@ export class UserRegisterComponent {
       (data) => {
         this.router.navigate(['login']);
       }, 
-      (error) => {}
-      );
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

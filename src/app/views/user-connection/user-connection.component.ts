@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { UserConnection } from '../userConnection';
-import { UserService } from '../user.service';
+import { UserConnection } from '../../models/userConnection';
+import { UserService } from '../../services/user.service';
 import { first } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -19,13 +19,14 @@ export class UserConnectionComponent {
 
   userLogin(){
     this.submitted = true;
-    this.userService.login(this.user.username,this.user.password)
-      .pipe(first())
-      .subscribe( data => {
-        const redirect = this.userService.redirectUrl ? this.userService.redirectUrl : '/dashboard';
-        this.router.navigate([redirect]);
-      }, error => {
+    return this.userService.login(this.user.username,this.user.password).subscribe( 
+      (data) => {
+        this.router.navigate(['/dashboard']);
+      }, 
+      (error) => {
         console.log(error);
-      });
+        alert(error.text.message);
+      }
+    );
   }
 }

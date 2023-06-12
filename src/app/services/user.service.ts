@@ -1,8 +1,9 @@
-import { EventEmitter, Injectable, Output } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 // import * as jwt from 'jsonwebtoken';
-import { map } from 'rxjs';
-import { UserConnection } from './userConnection';
+import { UserConnection } from '../models/userConnection';
+import { User } from '../models/user';
+import { BehaviorSubject, Observable, map, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +12,9 @@ export class UserService {
 
   redirectUrl: string = "";
   private baseUrl = 'http://localhost/pleasantTimeAPI';
-  
-  isLoggedIn: boolean = false;
-  // @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
+
+  private isLoggedInSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public isLoggedIn: Observable<boolean> = this.isLoggedInSubject.asObservable();
 
   constructor( private http: HttpClient) { }
 
@@ -33,41 +34,50 @@ export class UserService {
           console.log(data);
           if(data.token != null){
             this.setToken(data.token);
-            sessionStorage['token'] = data.token;
-            this.isLoggedIn = true;
+            this.isLoggedInSubject.next(true);
             return data.token;
           } else {
             return data;
           }
-          
         })
       )
   }
   
   logout(){
     this.deleteToken();
-    this.isLoggedIn = false;
+    this.isLoggedInSubject.next(false);
+  }
+
+  getUser(): User{
+    var token = this.getToken();
+    var user = token.payload.data;
+    return user;
   }
 
   //token
   setToken(token: string): void {
-    sessionStorage.setItem('token',token);
+    var jsonToken = JSON.stringify(token);
+    sessionStorage.setItem('token',jsonToken);
   }
 
   getToken() {
-     return sessionStorage.getItem('token');
+    var jsonToken = sessionStorage.getItem('token');
+    if(jsonToken) return JSON.parse(jsonToken);
+    else console.error("Token is null.");
   }
 
   deleteToken() {
     sessionStorage.removeItem('token');
   }
 
-  checkIsLoggedIn() {
+  checkIsLoggedIn(): boolean {
     const userToken = this.getToken();
     if(userToken != null){
+      this.isLoggedInSubject.next(true);
       return true;
     }
-    return false;
+    this.isLoggedInSubject.next(false);
+      return false;
   }
 
   // decodeToken(token:string):any {

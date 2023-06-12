@@ -1,0 +1,10 @@
+<div>
+    <p-button routerLink="/dashboard/activites/navigation">Retour</p-button>
+</div>
+<div>
+    <form (ngSubmit)="submitActivity()" #submitActivityForm="ngForm">
+        <input [(ngModel)]="activityTemp.title" class="form-control" name="activityTitle" id="activityTitle" #activityTitle="ngModel" type="text" pInputText pTooltip="Titre" pTooltipPosition="right" placeholder="Titre" required>
+        <textarea [(ngModel)]="activityTemp.description" class="form-control" name="activityDesc" id="activityDesc" pInputTextarea pTooltip="Description" pTooltipPosition="right" required></textarea>
+        <button pButton type="submit" class="ui-button-raised" [disabled]="!submitActivityForm.valid">Envoyer</button>
+    </form>
+</div>

@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { NgForm } from '@angular/forms';
 
-import { UserService } from './user.service';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -10,14 +9,16 @@ import { UserService } from './user.service';
 })
 export class AppComponent implements OnInit, OnDestroy{
   title = "Pleasant Time";
-  isLoggedIn: boolean;
+  // isLoggedIn: boolean = false;
 
-  constructor(private userService: UserService) {
-    this.isLoggedIn = false;
-  }
+  constructor(private userService: UserService) {}
 
-  ngOnInit() {
-    this.isLoggedIn = this.userService.checkIsLoggedIn();
+  ngOnInit(){
+    // this.userService.isLoggedIn.subscribe(
+    //   (isLoggedIn: boolean) => {
+    //     this.isLoggedIn = isLoggedIn;
+    //   }
+    // )
   } 
 
   ngOnDestroy() {
