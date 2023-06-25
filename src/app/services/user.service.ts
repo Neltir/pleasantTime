@@ -31,7 +31,6 @@ export class UserService {
     return this.http.post(`${this.baseUrl}/login`,{username, password})
       .pipe(
         map((data: any) => {
-          console.log(data);
           if(data.token != null){
             this.setToken(data.token);
             this.isLoggedInSubject.next(true);
@@ -78,6 +77,12 @@ export class UserService {
     }
     this.isLoggedInSubject.next(false);
       return false;
+  }
+
+  checkIsAdmin(): boolean{
+    var token = sessionStorage.getItem('token');
+    var tokenParsed = token == null ? 0 : JSON.parse(token).payload.data.isAdmin;
+    return tokenParsed == 1 ? true : false;
   }
 
   // decodeToken(token:string):any {

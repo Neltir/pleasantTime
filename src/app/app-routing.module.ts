@@ -17,6 +17,7 @@ import { SearchComponent } from './views/dashboard/search/search.component';
 import { LayoutComponent } from './views/layout/layout.component';
 import { SubmitActivityComponent } from './views/dashboard/activities/submit-activity/submit-activity.component';
 import { BrowseActivityComponent } from './views/dashboard/activities/browse-activity/browse-activity.component';
+import { AdminComponent } from './views/dashboard/admin/admin.component';
 
 const routes: Routes = [
   { path: '', component: OutsiderPresentationComponent},
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path: 'connexion', component: UserConnectionComponent},
   { path: 'inscription', component: UserRegisterComponent},
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthguardGuard], children: [
-    { path: '', component: ProfileComponent},
+    { path: '', component: ActivitiesComponent},
+    { path: 'admin', component: AdminComponent},
     { path: 'profil', component: ProfileComponent},
     { path: 'activites/:choice', component: ActivitiesComponent},
     { path: 'groupes', component: GroupsComponent},

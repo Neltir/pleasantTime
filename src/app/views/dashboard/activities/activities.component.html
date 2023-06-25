@@ -1,7 +1,9 @@
 <div *ngIf="param == 'navigation'" class="choices">
+    <p-button *ngIf="isAdmin" routerLink="/dashboard/activites/gestion">Gestion des activités</p-button>
     <p-button routerLink="/dashboard/activites/proposer">Soumettre une activité</p-button>
     <p-button routerLink="/dashboard/activites/parcourir">Parcourir de nouvelles activités</p-button>
     <p-button>Mes activités</p-button>
 </div>
 <app-submit-activity *ngIf="param=='proposer'"></app-submit-activity>
 <app-browse-activity *ngIf="param=='parcourir'"></app-browse-activity>
+<app-manage-activity *ngIf="param=='gestion'"></app-manage-activity>

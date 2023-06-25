@@ -1,0 +1,33 @@
+<h3>Bonjour Admin</h3>
+<p>{{activitiesCount}} activités temporaires à valider</p>
+
+<p-table [value]="activities" [tableStyle]="">
+    <ng-template pTemplate="header">
+        <tr>
+            <td>Nom</td>
+            <td>Description</td>
+            <td>Image</td>
+            <td>Soumis par</td>
+            <td>Créé le</td>
+            <td>Gestion</td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-activity>
+        <tr>
+            <td>{{activity.name}}</td>
+            <td>{{activity.description}}</td>
+            <td><img src="{{activity.image}}" alt="{{activity.name}}"></td>
+            <td>{{activity.submitedBy}}</td>
+            <td>{{activity.created_at}}</td>
+            <td>
+                <p-button (click)="validateActivity(activity.id)">Valider</p-button>
+                <p-button (click)="deleteActivity(activity.id)">Supprimer</p-button>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptyMessage">
+        <tr>
+            <td>Pas d'activité à traiter</td>
+        </tr>
+    </ng-template>
+</p-table>

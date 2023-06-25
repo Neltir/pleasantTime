@@ -1,6 +1,7 @@
 <div id="dashboard">
     <nav>
-        <a routerLink="/dashboard/profil">Mon profil</a>
+        <a *ngIf="!isAdmin" routerLink="/dashboard/profil">Mon profil</a>
+        <a *ngIf="isAdmin" routerLink="/dashboard/admin">Admin</a>
         <a routerLink="/dashboard/activites/navigation">Activités</a>
         <a routerLink="/dashboard/groupes">Mes groupes</a>
         <a routerLink="/dashboard/messagerie">Messagerie</a>

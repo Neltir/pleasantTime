@@ -10,6 +10,7 @@ import { MessagesModule } from 'primeng/messages';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { PasswordModule } from 'primeng/password';
+import { TableModule } from 'primeng/table';
 
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './views/layout/layout.component';
@@ -26,6 +27,8 @@ import { SearchComponent } from './views/dashboard/search/search.component';
 import { ActivitiesComponent } from './views/dashboard/activities/activities.component';
 import { SubmitActivityComponent } from './views/dashboard/activities/submit-activity/submit-activity.component';
 import { BrowseActivityComponent } from './views/dashboard/activities/browse-activity/browse-activity.component';
+import { AdminComponent } from './views/dashboard/admin/admin.component';
+import { ManageActivityComponent } from './views/dashboard/activities/manage-activity/manage-activity.component';
 
 
 @NgModule({
@@ -45,6 +48,8 @@ import { BrowseActivityComponent } from './views/dashboard/activities/browse-act
     ActivitiesComponent,
     SubmitActivityComponent,
     BrowseActivityComponent,
+    AdminComponent,
+    ManageActivityComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +62,7 @@ import { BrowseActivityComponent } from './views/dashboard/activities/browse-act
     InputTextModule,
     InputTextareaModule,
     PasswordModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

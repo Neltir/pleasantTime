@@ -24,8 +24,7 @@ export class UserConnectionComponent {
         this.router.navigate(['/dashboard']);
       }, 
       (error) => {
-        console.log(error);
-        alert(error.text.message);
+        alert(error.error.message);
       }
     );
   }

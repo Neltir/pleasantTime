@@ -24,7 +24,7 @@ export class UserRegisterComponent {
         this.router.navigate(['login']);
       }, 
       (error) => {
-        console.log(error);
+        alert(error.error.message);
       }
     );
   }

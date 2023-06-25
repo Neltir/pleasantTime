@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 
@@ -7,6 +7,13 @@ import { UserService } from '../../services/user.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent{
-  constructor(private route:Router){}
+export class DashboardComponent implements OnInit{
+  
+  isAdmin: boolean = false;
+
+  constructor(private route:Router, private userService:UserService){}
+
+  ngOnInit(){
+    this.isAdmin = this.userService.checkIsAdmin();
+  }
 }
