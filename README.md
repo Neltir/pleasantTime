@@ -1,27 +1,38 @@
 # PleasantTimeAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.1.
+pleasantTime c'est le nom de mon projet personnel, 
+une plateforme qui regroupe des amis et leur propose des activités à faire en groupe!
 
-## Development server
+--------------------
+Description
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+Les utilisateurs qui possèdent un compte peuvent rejoindre ou créer des groupes "d'amis" et intégrer l'espace du groupe avec un tchat et des propositions d'activitées retenues par le groupe.
+Ils peuvent choisir de swiper pour trier les activitées qui les interessent ou non. 
+La plateforme synthétise les réponses des membres du groupe et propose des activitées à faire qui sont retenues ou pourraient les intéresser.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Les activitées sont catégorisées par un système de tag: à distance, payantes, gratuites, adaptées aux enfants, adultes,...
+Elles peuvent être alimentées par les utilisateurs eux-même mais sont soumis à validation par un Administrateur.
 
-## Build
+Dans l'espace de groupe, les utilisateurs peuvent gérer un planning des activitées à venir et leur apporter des précisions sur l'endroit, etc. 
+(J'aimerais trouver un moyen de vérifier si le moment du planning et l'activité sont compatibles. Par exemple on ne peut pas aller au restaurant un jour où celui-ci est fermé, etc).
+Une fois le planning mis à jour, les membres peuvent rentrer leur disponibilité en mettant à jour leur statut pour l'activité qui possède elle-même un statut.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+--------------------
+Futur
 
-## Running unit tests
+Possible monétisation par proposition d'activitées publicitaires qui peuvent être liées à la localisation
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+--------------------
+Technologies
 
-## Running end-to-end tests
+Le projet utilise Angular, TypeScript pour la partie Front end
+Besoin d'installer le gestionnaire de paquets NPM
+Faire le lien avec la partie Back-end du projet en php sur serveur xamp de préférence: https://github.com/Neltir/pleasantTimeAPI
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+--------------------
+Lancer le build Interface: ng serve --open
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Par Jessica Dubouchaud, Développeuse junior
+Le 24/03/2023
